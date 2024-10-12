@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Just a dumb Invoice generator!',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#000000',
+    background_color: '#ffffff',
+    theme_color: '#ffffff',
     id: '/',
     icons: [
       { src: '/manifest/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
