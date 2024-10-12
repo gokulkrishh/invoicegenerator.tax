@@ -6,9 +6,16 @@ const nextConfig = {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },
 }
-
-// TODO: update later
-const ContentSecurityPolicy = ``
+const ContentSecurityPolicy = `
+    default-src 'self' invoicegenerator.tax;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    child-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src * blob: data:;
+    media-src 'self';
+    connect-src *;
+    font-src 'self';
+`
 
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
