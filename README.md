@@ -1,6 +1,6 @@
 <a href="https://invoicegenerator.tax">
 <p align="center"><img alt="Invoice Generator is just a dumb invoice generator and it happens to be an open source" width="100" height="100" src="./public/logo.svg"></p>
-  <h1 align="center">Subs Tracker</h1>
+  <h1 align="center">Invoice Generator</h1>
 </a>
 
 <p align="center">
