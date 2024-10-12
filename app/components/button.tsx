@@ -13,7 +13,7 @@ export const buttonVariants = cva(
         primary:
           'bg-blue-600 text-neutral-100 hover:bg-blue-600/90 hover:bg-blue-600/90 border border-blue-500 focus:border-blue-500/90 focus:ring-2 focus:ring-offset-1 focus-visible:bg-blue-500/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-blue-500/90 ring-blue-600 whitespace-nowrap text-nowrap disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-gray-500/5 disabled:border-blue-600/10',
         secondary:
-          'bg-transparent text-gray-800 [&_svg]:text-gray-800 hover:bg-gray-100/90 border border-gray-800 focus:border-gray-100/90 focus:ring-2 focus:ring-offset-1 focus-visible:bg-gray-100/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-800/90 ring-blue-600 whitespace-nowrap text-nowrap disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-gray-100/5 disabled:border-gray-800/10',
+          'bg-transparent text-gray-800 [&_svg]:text-gray-800 hover:bg-gray-100/90 border border-gray-300 focus:border-gray-300 focus:ring-2 focus:ring-offset-1 focus-visible:bg-gray-100/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-300 ring-blue-600 whitespace-nowrap text-nowrap disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-gray-100/5 disabled:border-gray-800/10',
         ghost:
           'border-transparent hover:border-gray-200 hover:bg-gray-100 focus:border-gray-200 focus:bg-gray-100 focus-visible:bg-gray-100 focus-visible:border-gray-200',
       },
@@ -32,13 +32,11 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  loading?: boolean
 }
 
-export default function Button({ children, loading, variant, size, className, ...props }: ButtonProps) {
+export default function Button({ children, variant, size, className, ...props }: ButtonProps) {
   return (
-    <button {...props} className={cn(buttonVariants({ variant, size, className }), loading && 'bg-gray-950/90')}>
-      {loading ? <Loader /> : null}
+    <button {...props} className={cn(buttonVariants({ variant, size, className }))}>
       {children}
     </button>
   )
