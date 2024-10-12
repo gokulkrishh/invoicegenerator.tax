@@ -35,8 +35,8 @@ Invoice Generator is just a dumb invoice generator and it happens to be an open 
 
 Here's how you can contribute:
 
-- [Open an issue](https://github.com/gokulkrishh/subs.is/issues) if you believe you've encountered a bug.
-- Make a [pull request](https://github.com/gokulkrishh/subs.is/pull) to add new features/make quality-of-life improvements/fix bugs.
+- [Open an issue](https://github.com/gokulkrishh/invoicegenerator.tax/issues) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/gokulkrishh/invoicegenerator.tax/pull) to add new features/make quality-of-life improvements/fix bugs.
 
 ### Author
 
