@@ -1,8 +1,29 @@
-# [invoicegenerator.tax](https://invoicegenerator.tax)
+<a href="https://invoicegenerator.tax">
+<p align="center"><img alt="Invoice Generator is just a dumb invoice generator and it happens to be an open source" width="100" height="100" src="./public/logo.svg"></p>
+  <h1 align="center">Subs Tracker</h1>
+</a>
 
-## Introduction
+<p align="center">
+  Invoice Generator is just a dumb invoice generator and it happens to be an open source.
+</p>
 
-Invoice Generator is an open-source application is just a dumb invoice generator.
+<p align="center">
+  <a href="https://github.com/gokulkrishh/invoicegenerator.tax/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/gokulkrishh/invoicegenerator.tax?label=license&logo=github&color=f80&logoColor=fff" alt="License" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="#introduction"><strong>Introduction</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
+  <a href="#implementation"><strong>Implementation</strong></a> ·
+  <a href="#contributions"><strong>Contributions</strong></a>
+</p>
+<br/>
+
+### Introduction
+
+Invoice Generator is just a dumb invoice generator and it happens to be an open source.
 
 ### Tech Stack
 
