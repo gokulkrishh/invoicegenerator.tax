@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import { useEffect, useRef, useState } from 'react'
 
+import { toast } from 'sonner'
+
 import Button from '@/app/components/button'
 import ClipboardButton from '@/app/components/clipboard'
 import { useCurrency } from '@/app/components/context/currency'
@@ -49,6 +51,7 @@ export default function Form() {
     event.preventDefault()
     try {
       setFormLoading(true)
+      toast.success('Downloading pdf, please wait!', { duration: 3000 })
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
         body: JSON.stringify({ formData, totalItemsAmount }),
@@ -77,6 +80,7 @@ export default function Form() {
       // Release the object URL
       URL.revokeObjectURL(url)
     } catch (error) {
+      toast.error('Error occurred', { duration: 3000 })
       console.error('Error generating PDF:', error)
     } finally {
       setFormLoading(false)

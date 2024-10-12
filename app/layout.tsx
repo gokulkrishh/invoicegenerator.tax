@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 
 import { ThemeProvider } from 'next-themes'
+import { Toaster } from 'sonner'
 
 import { CurrencyProvider } from '@/app/components/context/currency'
 
@@ -85,7 +86,10 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} bg-primary font-sans antialiased`}>
         <ThemeProvider enableSystem={false} enableColorScheme={false}>
           <FormProvider>
-            <CurrencyProvider>{children}</CurrencyProvider>
+            <CurrencyProvider>
+              <Toaster position="top-center" richColors />
+              {children}
+            </CurrencyProvider>
           </FormProvider>
         </ThemeProvider>
       </body>
