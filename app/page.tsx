@@ -17,12 +17,12 @@ export default async function Home() {
           <h1 className="text-2xl font-extrabold tracking-tighter">Invoice Generator</h1>
         </Link>
 
-        <div className="flex items-center gap-4 max-sm:mt-4 max-sm:justify-between">
+        <div className="flex items-center gap-4 max-sm:mt-4">
           <CurrencySelect />
           <GithubStarButton />
         </div>
       </header>
-      <main className="mt-10 flex w-full flex-col items-center justify-center">
+      <main className="mt-5 flex w-full flex-col items-center justify-center md:mt-10">
         <Form />
       </main>
       <footer className="mt-10 flex print:hidden">
