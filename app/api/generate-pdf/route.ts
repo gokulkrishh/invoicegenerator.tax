@@ -20,20 +20,20 @@ export async function POST(request: NextRequest) {
 
   try {
     /* Chrome size exceeds limit of serverless 50MB limit, followed below to avoid this issue
-
      https://www.stefanjudis.com/blog/how-to-use-headless-chrome-in-serverless-functions/
     */
 
     // Launch a new browser instance
-    puppeteer.launch({
-      args: [...chromium.args, '--disable-blink-features=AutomationControlled'],
-      defaultViewport: chromium.defaultViewport,
-      // you have to point to a Chromium tar file here 👇
-      executablePath: await chromium.executablePath(executablePath),
-    })
     const browser = await puppeteer.launch({
       defaultViewport: { width: 1080, height: 1080 },
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      args: [
+        ...chromium.args,
+        '--disable-blink-features=AutomationControlled',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],
+      // you have to point to a Chromium tar file here 👇
+      executablePath: await chromium.executablePath(executablePath),
     })
     const page = await browser.newPage()
 
