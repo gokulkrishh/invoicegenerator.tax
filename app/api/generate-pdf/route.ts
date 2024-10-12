@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import puppeteer from 'puppeteer'
+import chromium from '@sparticuz/chromium-min'
+import puppeteer from 'puppeteer-core'
 
 import { FormData } from '@/app/components/context/form'
+
+export const maxDuration = 60
+
+const executablePath = `https://github.com/Sparticuz/chromium/releases/download/v129.0.0/chromium-v129.0.0-pack.tar`
 
 export async function POST(request: NextRequest) {
   const {
@@ -14,7 +19,18 @@ export async function POST(request: NextRequest) {
   } = await request.json()
 
   try {
+    /* Chrome size exceeds limit of serverless 50MB limit, followed below to avoid this issue
+
+     https://www.stefanjudis.com/blog/how-to-use-headless-chrome-in-serverless-functions/
+    */
+
     // Launch a new browser instance
+    puppeteer.launch({
+      args: [...chromium.args, '--disable-blink-features=AutomationControlled'],
+      defaultViewport: chromium.defaultViewport,
+      // you have to point to a Chromium tar file here 👇
+      executablePath: await chromium.executablePath(executablePath),
+    })
     const browser = await puppeteer.launch({
       defaultViewport: { width: 1080, height: 1080 },
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
