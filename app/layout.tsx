@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    siteName: 'Box Box Club',
+    siteName: 'Invoice Generator',
     type: 'website',
     url,
     images: [
