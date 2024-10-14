@@ -9,6 +9,7 @@ export default function CurrencySelect() {
     <div className="inline-flex w-full max-w-[300px] items-center gap-2">
       <span className="text-sm font-medium">Currency:</span>
       <Select
+        aria-label="Currency"
         className="w-full"
         defaultSelected={selectedCurrency.code}
         data={data}

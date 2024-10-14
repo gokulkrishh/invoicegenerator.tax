@@ -16,7 +16,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
       <div className="w-[820px] md:w-full">
         <div className="flex w-full justify-between">
           <div className="flex w-full max-w-md flex-col gap-3">
-            <h5 className="max-w-md text-xl font-semibold">{formData.name}</h5>
+            <h4 className="max-w-md text-xl font-semibold">{formData.name}</h4>
 
             <p className="mt-1 flex w-full max-w-xs flex-col whitespace-pre-line">
               <span className="text-base font-semibold">From Address</span>
@@ -25,7 +25,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
           </div>
 
           <div className="mt-0 flex w-full max-w-xs flex-col">
-            <h6 className="mb-2 max-w-md text-lg font-semibold">Invoice {formData.invoiceNo}</h6>
+            <h5 className="mb-2 max-w-md text-lg font-semibold">Invoice {formData.invoiceNo}</h5>
             <p className="mt-1 flex w-full gap-1">
               <span className="font-semibold">Email:</span> {formData.email}
             </p>
@@ -63,7 +63,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
         </div>
 
         <div className="mt-10 flex w-full flex-col">
-          <div className="flex w-full max-w-full flex-col border-b border-gray-400 text-base text-sm">
+          <div className="flex w-full max-w-full flex-col border-b border-gray-400 text-sm">
             <div className="grid grid-cols-[40px,1.5fr,80px,80px,1.5fr,1fr] items-center gap-2 border-b border-gray-400">
               <span className="p-2 font-semibold">No.</span>
               <span className="font-semibold">Name</span>

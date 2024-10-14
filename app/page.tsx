@@ -13,7 +13,7 @@ export default async function Home() {
           className="flex items-center gap-1.5 rounded-md transition-all duration-200 ease-in-out active:scale-[1.02]"
           href="/"
         >
-          <Image src={'/logo.svg'} alt="Invoice Generator" width={22} height={22} />
+          <Image src={'/logo.svg'} width={22} height={22} alt={''} />
           <h1 className="text-2xl font-extrabold tracking-tighter">Invoice Generator</h1>
         </Link>
 

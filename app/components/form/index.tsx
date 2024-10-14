@@ -296,9 +296,9 @@ export default function Form() {
               }}
             />
 
-            <h4 className="mb-5 mt-2 w-full pr-6 text-right text-lg font-semibold tracking-tight">
+            <h2 className="mb-5 mt-2 w-full pr-6 text-right text-lg font-semibold tracking-tight">
               Total Items Amount: <span className="tabular-nums">{totalItemsAmount}</span>
-            </h4>
+            </h2>
           </div>
 
           <div className="flex w-full">
@@ -378,7 +378,7 @@ Bank Name: State Bank of India`}
 
       <div className="mb-5 mt-10 flex w-full flex-col overflow-auto">
         <div className="flex justify-between print:hidden">
-          <h4 className="w-fit font-semibold">Preview:</h4>
+          <h3 className="w-fit font-semibold">Preview:</h3>
           <p className="inline-flex items-center gap-1 text-sm">
             Press{' '}
             <kbd className="rounded-md border border-gray-300 p-0.5 px-1 font-mono font-medium text-black">cmd + p</kbd>{' '}

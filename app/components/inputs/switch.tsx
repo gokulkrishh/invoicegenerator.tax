@@ -19,9 +19,9 @@ export default function Switch({ label, defaultValue, onChangeCallback }: Switch
         </label>
       ) : null}
       <div className="relative inline-flex cursor-pointer items-center">
-        <input tabIndex={-1} type="checkbox" className="peer sr-only" checked={enabled} readOnly />
+        <input id={label} tabIndex={-1} type="checkbox" className="peer sr-only" checked={enabled} readOnly />
         <button
-          id={label}
+          aria-label={enabled ? 'Disable' : 'Enable'}
           onClick={() => {
             setEnabled(!enabled)
             onChangeCallback?.(!enabled)

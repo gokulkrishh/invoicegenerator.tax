@@ -143,8 +143,10 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
                   variant="ghost"
                   className="h-8 w-8 rounded-full"
                   onClick={() => removeItem(item.id)}
+                  aria-label="Remove item"
                 >
                   <svg
+                    aria-hidden="true"
                     className="text-red-600"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
