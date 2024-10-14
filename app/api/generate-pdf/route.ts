@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import chromium from '@sparticuz/chromium-min'
-import puppeteer from 'puppeteer-core'
 
 import { FormData } from '@/app/components/context/form'
 
 export const maxDuration = 60
 
-const executablePath = `https://github.com/Sparticuz/chromium/releases/download/v129.0.0/chromium-v129.0.0-pack.tar`
+const REMOTE_CHROME_EXECUTABLE = `https://github.com/Sparticuz/chromium/releases/download/v129.0.0/chromium-v129.0.0-pack.tar`
+
+const isProd = process.env.NODE_ENV === 'production'
 
 export async function POST(request: NextRequest) {
   const {
@@ -20,21 +21,33 @@ export async function POST(request: NextRequest) {
 
   try {
     /* Chrome size exceeds limit of serverless 50MB limit, followed below to avoid this issue
-     https://www.stefanjudis.com/blog/how-to-use-headless-chrome-in-serverless-functions/
+    https://www.stefanjudis.com/blog/how-to-use-headless-chrome-in-serverless-functions/
     */
 
     // Launch a new browser instance
-    const browser = await puppeteer.launch({
-      defaultViewport: { width: 1080, height: 1080 },
-      args: [
-        ...chromium.args,
-        '--disable-blink-features=AutomationControlled',
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-      ],
-      // you have to point to a Chromium tar file here 👇
-      executablePath: await chromium.executablePath(executablePath),
-    })
+    let browser = null
+    let puppeteer = null
+    if (isProd) {
+      puppeteer = await import('puppeteer-core')
+      browser = await puppeteer.launch({
+        defaultViewport: { width: 1080, height: 1080 },
+        args: [
+          ...chromium.args,
+          '--disable-blink-features=AutomationControlled',
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+        // you have to point to a Chromium tar file here 👇
+        executablePath: await chromium.executablePath(REMOTE_CHROME_EXECUTABLE),
+      })
+    } else {
+      puppeteer = await import('puppeteer')
+      browser = await puppeteer.launch({
+        defaultViewport: { width: 1080, height: 1080 },
+        args: ['--disable-blink-features=AutomationControlled', '--no-sandbox', '--disable-setuid-sandbox'],
+      })
+    }
+
     const page = await browser.newPage()
 
     // Import ReactDOMServer for rendering the Preview component

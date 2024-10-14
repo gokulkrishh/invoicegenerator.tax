@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+
 import { cn } from '../lib/utils'
 import { FormData } from './context/form'
 
@@ -13,7 +15,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
         'mt-2 flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-gray-300 p-4 px-4 text-sm leading-6 lg:max-w-[1080px] print:border-0',
       )}
     >
-      <div className="w-[820px] md:w-full">
+      <div className="w-[860px] md:w-full">
         <div className="flex w-full justify-between">
           <div className="flex w-full max-w-md flex-col gap-3">
             <h4 className="max-w-md text-xl font-semibold">{formData.name}</h4>
@@ -50,7 +52,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
             <p className="mt-1 flex w-full items-center gap-1">
               <span className="w-[140px] font-semibold">Performance Period:</span>
               <span>
-                {formData.performanceFrom} - {formData.performanceTo}{' '}
+                {formData.performanceFrom} <span className="text-sm font-medium">-</span> {formData.performanceTo}{' '}
               </span>
             </p>
             <p className="mt-1 flex w-full max-w-xs gap-1">

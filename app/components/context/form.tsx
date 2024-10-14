@@ -7,7 +7,7 @@ import { ItemsData } from '@/app/components/items-table'
 export type FormData = {
   name: string
   email: string
-  phoneNumber: number | undefined
+  phoneNumber: string
   tax: string
   fromAddress: string
   toAddress: string
@@ -33,7 +33,7 @@ const FormContext = createContext<FormContextType | undefined>(undefined)
 export const getInitialFormData = (): FormData => ({
   name: '',
   email: '',
-  phoneNumber: undefined,
+  phoneNumber: '',
   tax: '',
   fromAddress: '',
   toAddress: '',

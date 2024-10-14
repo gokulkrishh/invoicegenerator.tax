@@ -12,13 +12,14 @@ import { useCurrency } from '@/app/components/context/currency'
 import { FormData, getInitialFormData, useFormData } from '@/app/components/context/form'
 import { formatCurrency } from '@/app/components/inputs/currency'
 import DateInput from '@/app/components/inputs/date'
-import Number from '@/app/components/inputs/number'
 import Switch from '@/app/components/inputs/switch'
 import Text from '@/app/components/inputs/text'
 import TextArea from '@/app/components/inputs/textarea'
 import ItemsTable, { ItemsData } from '@/app/components/items-table'
 import Loader from '@/app/components/loader'
 import Preview from '@/app/components/preview'
+
+import { formatDate, formatDateForInput } from '@/app/lib/utils'
 
 const IGNORE_FIELDS: (keyof FormData)[] = []
 
@@ -154,7 +155,7 @@ export default function Form() {
                 required
               />
             </div>
-            <div className="mt-1 flex w-full max-w-xs flex-col gap-3">
+            <div className="flex w-full max-w-xs flex-col gap-3">
               <Text
                 onChangeCallback={(value: string) => {
                   onChangeHandler('invoiceNo', value)
@@ -170,7 +171,7 @@ export default function Form() {
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="mt-3 flex justify-between">
             <div className="flex w-full max-w-md flex-col gap-3">
               <TextArea
                 onChangeCallback={(value: string) => {
@@ -212,18 +213,17 @@ export default function Form() {
                 required
                 defaultValue={formData.email}
               />
-              <Number
-                onChangeCallback={(value: number) => {
+              <Text
+                onChangeCallback={(value: string) => {
                   onChangeHandler('phoneNumber', value)
                 }}
                 id="phone-number"
                 name="phone-number"
                 className="w-full"
-                type="tel"
                 label="Phone Number"
-                placeholder="1234567890"
+                placeholder="+91 1234567890"
                 required
-                defaultValue={formData.phoneNumber || undefined}
+                defaultValue={formData.phoneNumber}
               />
               <Text
                 onChangeCallback={(value: string) => {
@@ -240,49 +240,49 @@ export default function Form() {
               <div className="inline-flex w-full max-w-xs justify-between">
                 <DateInput
                   onChangeCallback={(value: string) => {
-                    onChangeHandler('performanceFrom', value)
+                    onChangeHandler('performanceFrom', formatDate(value))
                   }}
                   id="performance-from"
                   name="performance-from"
                   className="w-full"
                   label="Performance From"
                   required
-                  defaultValue={formData.performanceFrom}
+                  defaultValue={formatDateForInput(formData.performanceFrom)}
                 />
                 <DateInput
                   onChangeCallback={(value: string) => {
-                    onChangeHandler('performanceTo', value)
+                    onChangeHandler('performanceTo', formatDate(value))
                   }}
                   id="performance-to"
                   name="performance-to"
                   className="w-full"
                   label="Performance To"
                   required
-                  defaultValue={formData.performanceTo}
+                  defaultValue={formatDateForInput(formData.performanceTo)}
                 />
               </div>
               <div className="inline-flex w-full max-w-xs justify-between">
                 <DateInput
                   className="w-full"
                   onChangeCallback={(value: string) => {
-                    onChangeHandler('dueDate', value)
+                    onChangeHandler('dueDate', formatDate(value))
                   }}
                   id="due-date"
                   name="due-date"
                   label="Due Date"
                   required
-                  defaultValue={formData.dueDate}
+                  defaultValue={formatDateForInput(formData.dueDate)}
                 />
                 <DateInput
                   className="w-full"
                   onChangeCallback={(value: string) => {
-                    onChangeHandler('invoiceDate', value)
+                    onChangeHandler('invoiceDate', formatDate(value))
                   }}
                   id="invoice-date"
                   name="invoice-date"
                   label="Invoice Date"
                   required
-                  defaultValue={formData.invoiceDate}
+                  defaultValue={formatDateForInput(formData.invoiceDate)}
                 />
               </div>
             </div>
@@ -319,9 +319,7 @@ Bank Name: State Bank of India`}
             />
           </div>
 
-          <div className="mt-10 h-[1px] w-full bg-gray-300" />
-
-          <div className="mt-2 flex w-full justify-between gap-10">
+          <div className="mt-20 flex w-full justify-between gap-10">
             <TextArea
               onChangeCallback={(value: string) => {
                 onChangeHandler('footnote1', value)

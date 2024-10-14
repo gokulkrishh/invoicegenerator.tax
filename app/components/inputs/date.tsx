@@ -32,7 +32,6 @@ export default function Date({ className, label, defaultValue, onChangeCallback,
           'custom-date rounded-lg border border-gray-300 p-2 text-sm text-black outline-none ring-gray-400 transition-all duration-200 ease-in-out focus:border-gray-300 focus:ring-2 focus:ring-offset-1 focus-visible:border-gray-300 focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-950/5',
           className,
         )}
-        pattern="\d{2}/\d{2}/\d{4}"
         type="date"
         value={value}
         onChange={handleChange}
