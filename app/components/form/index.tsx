@@ -379,6 +379,11 @@ Bank Name: State Bank of India`}
       <div className="mb-5 mt-10 flex w-full flex-col overflow-auto">
         <div className="flex justify-between print:hidden">
           <h4 className="w-fit font-semibold">Preview:</h4>
+          <p className="inline-flex items-center gap-1 text-sm">
+            Press{' '}
+            <kbd className="rounded-md border border-gray-300 p-0.5 px-1 font-mono font-medium text-black">cmd + p</kbd>{' '}
+            to print or save it!
+          </p>
         </div>
         <Preview formData={previewData} totalItemsAmount={totalItemsAmount} />
       </div>
