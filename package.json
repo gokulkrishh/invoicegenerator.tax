@@ -1,6 +1,6 @@
 {
   "name": "invoicegenerator.tax",
-  "description": "Just a dumb Invoice generator!",
+  "description": "Just a dumb free invoice generator!",
   "version": "0.1.0",
   "private": true,
   "scripts": {

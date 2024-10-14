@@ -1,10 +1,10 @@
 <a href="https://invoicegenerator.tax">
-<p align="center"><img alt="Invoice Generator is just a dumb invoice generator and it happens to be an open source" width="100" height="100" src="./public/logo.svg"></p>
+<p align="center"><img alt="Invoice Generator is just a dumb free invoice generator and it happens to be an open source" width="100" height="100" src="./public/logo.svg"></p>
   <h1 align="center"><a href="https://invoicegenerator.tax">Invoice Generator</a></h1>
 </a>
 
 <p align="center">
-  Invoice Generator is just a dumb invoice generator and it happens to be an open source.
+  Invoice Generator is just a dumb free invoice generator and it happens to be an open source.
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 ### Introduction
 
-Invoice Generator is just a dumb invoice generator and it happens to be an open source.
+Invoice Generator is just a dumb free invoice generator and it happens to be an open source.
 
 ### Tech Stack
 
