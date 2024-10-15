@@ -22,37 +22,34 @@ async function getStarCount(): Promise<number | null> {
 }
 
 export default async function GithubStarButton() {
-  const count = await getStarCount()
   return (
     <Link
       target="_blank"
       href={`https://github.com/${owner}/${repo}`}
-      className="inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-gray-300 bg-white px-2 font-medium text-black outline-none ring-blue-600 transition-all duration-200 ease-in-out hover:bg-gray-100/90 focus:border-gray-200 focus:bg-gray-100 focus:ring-2 focus:ring-offset-1 focus-visible:border-gray-200 focus-visible:bg-gray-50 focus-visible:ring-2 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:cursor-not-allowed disabled:border-gray-300/10 disabled:bg-gray-300/5 disabled:text-gray-400 disabled:text-white disabled:ring-0 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
+      className="group inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-gray-900 bg-gray-950 px-2 font-medium text-black outline-none ring-blue-600 transition-all duration-200 ease-in-out hover:bg-gray-950/90 focus:border-gray-800 focus:bg-gray-900 focus:ring-2 focus:ring-offset-1 focus-visible:border-gray-800 focus-visible:bg-gray-900 focus-visible:ring-2 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:cursor-not-allowed [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
     >
-      <StarIcon className="!h-3.5 !w-3.5 text-yellow-600" />{' '}
-      <span className="text-sm tabular-nums text-black">{count}</span>
+      <div className="flex items-center gap-1.5">
+        <svg
+          className="fill-current text-gray-300 group-hover:text-neutral-100 group-focus-visible:text-neutral-100"
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="16"
+          aria-hidden="true"
+          role="presentation"
+        >
+          <path d="M8 0C3.6 0 0 3.6 0 8c0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6C16 3.6 12.4 0 8 0Z"></path>
+        </svg>
+        <span className="text-sm tabular-nums text-white">Star</span>
+        <svg
+          className="fill-current text-neutral-400 group-hover:text-neutral-100 group-focus-visible:text-neutral-100"
+          xmlns="http://www.w3.org/2000/svg"
+          width="9"
+          height="9"
+          fill="none"
+        >
+          <path d="M1.65 8.514.74 7.6l5.514-5.523H2.028l.01-1.258h6.388v6.394H7.16l.01-4.226L1.65 8.514Z"></path>
+        </svg>
+      </div>
     </Link>
-  )
-}
-
-function StarIcon({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width={24}
-      height={24}
-      color={'#000000'}
-      fill={'currentColor'}
-    >
-      <path
-        d="M13.7276 3.44418L15.4874 6.99288C15.7274 7.48687 16.3673 7.9607 16.9073 8.05143L20.0969 8.58575C22.1367 8.92853 22.6167 10.4206 21.1468 11.8925L18.6671 14.3927C18.2471 14.8161 18.0172 15.6327 18.1471 16.2175L18.8571 19.3125C19.417 21.7623 18.1271 22.71 15.9774 21.4296L12.9877 19.6452C12.4478 19.3226 11.5579 19.3226 11.0079 19.6452L8.01827 21.4296C5.8785 22.71 4.57865 21.7522 5.13859 19.3125L5.84851 16.2175C5.97849 15.6327 5.74852 14.8161 5.32856 14.3927L2.84884 11.8925C1.389 10.4206 1.85895 8.92853 3.89872 8.58575L7.08837 8.05143C7.61831 7.9607 8.25824 7.48687 8.49821 6.99288L10.258 3.44418C11.2179 1.51861 12.7777 1.51861 13.7276 3.44418Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   )
 }
