@@ -3,24 +3,6 @@ import Link from 'next/link'
 const owner: string = 'gokulkrishh'
 const repo: string = 'invoicegenerator.tax'
 
-async function getStarCount(): Promise<number | null> {
-  try {
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}`,
-      { next: { revalidate: 1200 } }, // 20 minutes
-    )
-    const data = await response.json()
-    if (response.ok) {
-      return data.stargazers_count
-    } else {
-      return 0
-    }
-  } catch (error) {
-    console.error('Error:', error)
-    return 0
-  }
-}
-
 export default async function GithubStarButton() {
   return (
     <Link
