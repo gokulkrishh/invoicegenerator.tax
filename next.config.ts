@@ -1,7 +1,10 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next'
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
+  experimental: {
+    reactCompiler: true,
+  },
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }]
   },
