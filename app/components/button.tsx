@@ -13,10 +13,10 @@ export const buttonVariants = cva(
         secondary:
           'bg-transparent text-black hover:bg-gray-100/90 border border-gray-200 hover:border-gray-200 focus:border-gray-200 focus:ring-2 focus:bg-gray-200/90 focus:ring-offset-1 focus-visible:bg-gray-200/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-200 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-200/90 disabled:border-gray-200/90',
         ghost:
-          'bg-transparent text-inherit border-transparent hover:bg-gray-200 hover:border-gray-200 focus:border-gray-200 focus:ring-0 focus-visible:bg-gray-200 focus-visible:ring-0 focus-visible:border-gray-200 ring-gray-200 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:border-gray-200',
+          'bg-transparent text-inherit border-transparent hover:bg-gray-200 hover:border-gray-200 focus:border-gray-200 focus:ring-2 focus-visible:bg-gray-200 focus-visible:ring-1 focus-visible:border-gray-200/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-200 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-200/90 disabled:border-gray-200/90',
       },
       size: {
-        default: 'h-8 px-3',
+        default: 'h-9 px-3',
       },
     },
     defaultVariants: {
