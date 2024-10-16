@@ -74,12 +74,18 @@ select.custom-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
 }
 
-/* input[type='date'].custom-date::-webkit-inner-spin-button,
-input[type='date'].custom-date::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
+input[type='date'].custom-date::-webkit-datetime-edit {
+  padding: 0;
+  display: block;
+  padding: 0;
 }
 
+input[type='date'].custom-date,
+input[type='time'].custom-time {
+  -webkit-min-logical-width: calc(100% - 16px);
+}
+
+/*
 input[type='date'].custom-date {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3e%3c/svg%3e");
   background-position: right 0.75rem center;
@@ -123,7 +129,8 @@ textarea {
 input::-moz-placeholder,
 textarea::-moz-placeholder,
 input::placeholder,
-textarea::placeholder {
+textarea::placeholder,
+input::-webkit-input-placeholder {
   opacity: 0.5;
   color: rgb(var(--gray-200));
 }

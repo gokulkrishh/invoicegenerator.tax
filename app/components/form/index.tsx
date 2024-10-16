@@ -244,7 +244,7 @@ export default function Form() {
                   }}
                   id="performance-from"
                   name="performance-from"
-                  className="w-full"
+                  className="w-[140px]"
                   label="Performance From"
                   required
                   defaultValue={formatDateForInput(formData.performanceFrom)}
@@ -255,7 +255,7 @@ export default function Form() {
                   }}
                   id="performance-to"
                   name="performance-to"
-                  className="w-full"
+                  className="w-[140px]"
                   label="Performance To"
                   required
                   defaultValue={formatDateForInput(formData.performanceTo)}
@@ -263,7 +263,7 @@ export default function Form() {
               </div>
               <div className="inline-flex w-full max-w-xs justify-between">
                 <DateInput
-                  className="w-full"
+                  className="w-[140px]"
                   onChangeCallback={(value: string) => {
                     onChangeHandler('dueDate', formatDate(value))
                   }}
@@ -274,7 +274,7 @@ export default function Form() {
                   defaultValue={formatDateForInput(formData.dueDate)}
                 />
                 <DateInput
-                  className="w-full"
+                  className="w-[140px]"
                   onChangeCallback={(value: string) => {
                     onChangeHandler('invoiceDate', formatDate(value))
                   }}
