@@ -22,7 +22,7 @@ const geistMono = localFont({
 })
 
 const title = 'Invoice Generator'
-const description = 'Just a dumb Invoice generator!'
+const description = 'Just a dumb free invoice generator!'
 const url = 'https://invoicegenerator.tax'
 
 export const metadata: Metadata = {
