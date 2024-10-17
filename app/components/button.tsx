@@ -3,7 +3,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/app/lib/utils'
 
 export const buttonVariants = cva(
-  `inline-flex shrink-0 gap-2 font-medium items-center bg-gray-950 text-white justify-center rounded-lg outline-none focus:bg-gray-950/90 hover:bg-gray-950/90 focus:bg-gray-950/90 focus:border-gray-950/90 focus:ring-2 focus:ring-offset-1 focus-visible:bg-gray-950/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-950/90 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-950/70 disabled:border-gray-950/10 disabled:ring-0 border border-black transition-all duration-200 ease-in-out [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit text-sm`,
+  `inline-flex shrink-0 gap-2 font-medium items-center bg-gray-950 text-white justify-center rounded-lg outline-none focus:bg-gray-950/85 hover:bg-gray-950/85 focus:bg-gray-950/85 focus:border-gray-950/85 focus:ring-2 focus:ring-offset-1 focus-visible:bg-gray-950/85 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-950/85 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-950/70 disabled:border-gray-950/10 disabled:ring-0 border border-black transition-all duration-200 ease-in-out [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit text-sm`,
   {
     variants: {
       variant: {
