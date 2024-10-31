@@ -124,7 +124,7 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
               </div>
               <div className="flex w-fit flex-col gap-3 rounded-md px-2 py-2">
                 <Text
-                  label={`${index === 0 ? 'Total Amount' : ''}`}
+                  label={`${index === 0 ? 'Amount' : ''}`}
                   className="max-w-38 w-full tabular-nums"
                   placeholder={String(item.totalAmount)}
                   value={item.totalAmount}

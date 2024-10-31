@@ -71,7 +71,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
               <span className="font-semibold">Price</span>
               <span className="font-semibold">Quantity</span>
               <span className="font-semibold">Description</span>
-              <span className="font-semibold">Total Amount</span>
+              <span className="font-semibold">Amount</span>
             </div>
             {formData.items?.map((item, index) => {
               return (
@@ -89,8 +89,8 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
               )
             })}
           </div>
-          <h6 className="mb-6 mt-10 w-full text-right text-lg font-semibold tracking-tight">
-            Total Items Amount: <span className="tabular-nums">{totalItemsAmount}</span>
+          <h6 className="mb-6 mt-10 w-full text-right text-xl font-semibold tracking-tight">
+            Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
           </h6>
         </div>
 

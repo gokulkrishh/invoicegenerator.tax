@@ -4,6 +4,7 @@ import Link from 'next/link'
 import CurrencySelect from './components/currency-select'
 import Form from './components/form'
 import GithubStarButton from './components/github-link'
+import History from './components/history'
 
 export default async function Home() {
   return (

@@ -35,8 +35,12 @@ export default function Form() {
 
   useEffect(() => {
     const localInvoiceData = localStorage.getItem('invoice-form-data')
+    const localDevMode = localStorage.getItem('invoice-dev-mode')
     if (localInvoiceData) {
       setFormData(JSON.parse(localInvoiceData) as FormData)
+    }
+    if (localDevMode) {
+      setDevMode(JSON.parse(localDevMode) as boolean)
     }
     setSavedToLocal(!!localInvoiceData)
     setLoading(false)
@@ -135,7 +139,14 @@ export default function Form() {
         </p>
         <div className="mb-2 flex gap-4 max-sm:justify-between">
           <Switch defaultValue={savedToLocal} label="Save to localStorage" onChangeCallback={handleSaveToLocal} />
-          <Switch label="Developer Mode" onChangeCallback={setDevMode} />
+          <Switch
+            defaultValue={devMode}
+            label="Developer Mode"
+            onChangeCallback={() => {
+              setDevMode(!devMode)
+              localStorage.setItem('invoice-dev-mode', JSON.stringify(!devMode))
+            }}
+          />
         </div>
       </div>
       <div className="flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-gray-300 p-4 px-4 print:hidden">
@@ -296,8 +307,8 @@ export default function Form() {
               }}
             />
 
-            <h2 className="mb-5 mt-2 w-full pr-6 text-right text-lg font-semibold tracking-tight">
-              Total Items Amount: <span className="tabular-nums">{totalItemsAmount}</span>
+            <h2 className="mb-5 mt-2 w-full pr-6 text-right text-xl font-semibold tracking-tight">
+              Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
             </h2>
           </div>
 
@@ -363,17 +374,16 @@ Bank Name: State Bank of India`}
 
       {devMode ? (
         <div className="mt-5 flex w-full flex-col print:hidden">
-          <div className="flex justify-between">
+          <div className="mb-2 flex justify-between">
             <h4 className="w-fit font-semibold">Data:</h4>
             <div className="flex items-center gap-3">
               <ClipboardButton data={formData} />
             </div>
           </div>
-          <pre className="mt-2 flex w-full min-w-full items-start justify-start text-left">
-            <code className="relative flex w-full flex-col gap-2.5 overflow-auto text-wrap rounded-lg border border-gray-300 p-4 px-4 font-mono">
-              {JSON.stringify(formData, null, 2)}
-            </code>
-          </pre>
+          <textarea
+            defaultValue={JSON.stringify(formData, null, 2)}
+            className="relative flex h-[630px] w-full flex-col gap-2.5 overflow-auto text-wrap rounded-lg border border-gray-300 p-4 px-4 font-mono text-sm"
+          />
         </div>
       ) : null}
     </>
