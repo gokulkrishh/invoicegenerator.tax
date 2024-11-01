@@ -8,11 +8,11 @@ export default async function GithubStarButton() {
     <Link
       target="_blank"
       href={`https://github.com/${owner}/${repo}`}
-      className="group inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-gray-900 bg-gray-950 px-2 font-medium text-black outline-none ring-blue-600 transition-all duration-200 ease-in-out hover:bg-gray-950/85 focus:border-gray-800 focus:bg-gray-900 focus:ring-2 focus:ring-offset-1 focus-visible:border-gray-800 focus-visible:bg-gray-900 focus-visible:ring-2 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:cursor-not-allowed [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
+      className="group inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-border bg-background px-2 font-medium text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border focus:bg-background focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
     >
       <div className="flex items-center gap-1.5">
         <svg
-          className="fill-current text-gray-300 group-hover:text-neutral-100 group-focus-visible:text-neutral-100"
+          className="fill-current text-foreground group-hover:text-foreground group-focus-visible:text-foreground"
           xmlns="http://www.w3.org/2000/svg"
           width="17"
           height="16"
@@ -21,9 +21,9 @@ export default async function GithubStarButton() {
         >
           <path d="M8 0C3.6 0 0 3.6 0 8c0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6C16 3.6 12.4 0 8 0Z"></path>
         </svg>
-        <span className="text-sm tabular-nums text-white">Star</span>
+        <span className="text-sm tabular-nums text-foreground">Star</span>
         <svg
-          className="fill-current text-neutral-400 group-hover:text-neutral-100 group-focus-visible:text-neutral-100"
+          className="fill-current text-foreground group-hover:text-foreground group-focus-visible:text-foreground"
           xmlns="http://www.w3.org/2000/svg"
           width="9"
           height="9"

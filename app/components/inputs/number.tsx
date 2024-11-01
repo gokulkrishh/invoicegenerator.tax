@@ -30,7 +30,7 @@ export default function Number({ className, defaultValue, label, onChangeCallbac
       <input
         type="number"
         className={cn(
-          'inline-flex rounded-lg border border-gray-300 p-2 text-sm tabular-nums text-black outline-none ring-gray-400 transition-all duration-200 ease-in-out focus:border-gray-300 focus:ring-2 focus:ring-offset-1 focus-visible:border-gray-300 focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-950/5',
+          'inline-flex rounded-lg border border-border p-2 text-sm tabular-nums text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out focus:border-border focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-foreground/10',
           className,
         )}
         value={value}

@@ -7,15 +7,18 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    transparent: 'transparent',
+    current: 'currentColor',
     extend: {
       fontFamily: {
         sans: 'var(--font-geist-sans)',
         mono: 'var(--font-geist-mono)',
       },
       colors: {
-        white: 'hsl(var(--white))',
-        black: 'hsl(var(--black))',
-        primary: 'hsl(var(--primary))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        border: 'hsl(var(--border))',
+        ring: 'hsl(var(--ring))',
       },
     },
   },

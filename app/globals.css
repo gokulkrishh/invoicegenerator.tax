@@ -27,6 +27,22 @@ html {
   height: 100%;
 }
 
+@layer base {
+  :root {
+    --foreground: 0deg 0% 0%;
+    --background: 0deg 0% 100%;
+    --border: 240 5.9% 90%;
+    --ring: 240 5% 64.9%;
+  }
+}
+
+[data-theme='dark']:root {
+  --foreground: 0deg 0% 100%;
+  --background: 0deg 0% 0%;
+  --ring: 272 3.8% 46.1%;
+  --border: 240 3.7% 15.9%;
+}
+
 svg {
   shape-rendering: crispEdges;
 }
@@ -37,26 +53,6 @@ svg path,
 svg polygon,
 svg rect {
   shape-rendering: geometricprecision;
-}
-
-@layer base {
-  :root {
-    /* Colors */
-    --white: 0, 0%, 100%;
-    --black: 0, 0%, 0%;
-
-    /* Background Colors */
-    --primary: 0, 0%, 100%;
-  }
-
-  .dark {
-    /* Colors */
-    --white: 0, 0%, 100%;
-    --black: 0, 0%, 0%;
-
-    /* Background Colors */
-    --primary: 0, 0%, 0%;
-  }
 }
 
 select.custom-select {
@@ -70,8 +66,19 @@ select.custom-select {
   -moz-appearance: none;
 }
 
-.dark select.custom-select {
+[data-theme='dark'] select.custom-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+input[type='date'].custom-date::-webkit-calendar-picker-indicator {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-calendar'%3E%3Cpath d='M8 2v4'%3E%3C/path%3E%3Cpath d='M16 2v4'%3E%3C/path%3E%3Crect width='18' height='18' x='3' y='4' rx='2'%3E%3C/rect%3E%3Cpath d='M3 10h18'%3E%3C/path%3E%3C/svg%3E")
+    center/80% no-repeat;
+  color: hsl(var(--foreground));
+}
+
+[data-theme='dark'] input[type='date'].custom-date::-webkit-calendar-picker-indicator {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-calendar'%3E%3Cpath d='M8 2v4'%3E%3C/path%3E%3Cpath d='M16 2v4'%3E%3C/path%3E%3Crect width='18' height='18' x='3' y='4' rx='2'%3E%3C/rect%3E%3Cpath d='M3 10h18'%3E%3C/path%3E%3C/svg%3E")
+    center/80% no-repeat;
 }
 
 input[type='date'].custom-date::-webkit-datetime-edit {

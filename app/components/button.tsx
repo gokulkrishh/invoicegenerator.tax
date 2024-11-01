@@ -3,17 +3,18 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/app/lib/utils'
 
 export const buttonVariants = cva(
-  `inline-flex shrink-0 gap-2 font-medium items-center bg-gray-950 text-white justify-center rounded-lg outline-none focus:bg-gray-950/85 hover:bg-gray-950/85 focus:bg-gray-950/85 focus:border-gray-950/85 focus:ring-2 focus:ring-offset-1 focus-visible:bg-gray-950/85 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-950/85 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-950/70 disabled:border-gray-950/10 disabled:ring-0 border border-black transition-all duration-200 ease-in-out [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit text-sm`,
+  `inline-flex shrink-0 gap-2 font-medium items-center bg-background text-foreground justify-center rounded-lg outline-none focus:bg-foreground/10 hover:bg-foreground/10 focus:border-border/85 focus:ring-2 focus:ring-offset-2 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:border-border/85 ring-ring ring-offset-background whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-background/70 border border-border transition-all duration-200 ease-in-out [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit text-sm`,
   {
     variants: {
       variant: {
         default: '',
         primary:
-          'bg-blue-600 text-neutral-100 hover:bg-blue-600/90 hover:bg-blue-600/90 border border-blue-600 focus:border-blue-600/90 focus:ring-2 focus:ring-offset-1 focus-visible:bg-blue-600/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-blue-600/90 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-blue-600/90 disabled:border-blue-600/90',
+          'bg-blue-600 text-foreground hover:bg-blue-600/90  border border-blue-600 focus:border-blue-600/90 focus-visible:bg-blue-600/90 focus-visible:border-blue-600/90 ring-ring ring-offset-background disabled:bg-blue-600/90 disabled:border-blue-600/90',
         secondary:
-          'bg-transparent text-black hover:bg-gray-100/90 border border-gray-200 hover:border-gray-200 focus:border-gray-200 focus:ring-2 focus:bg-gray-200/90 focus:ring-offset-1 focus-visible:bg-gray-200/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-200 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-200/90 disabled:border-gray-200/90',
+          'bg-transparent text-foreground hover:bg-foreground/10 focus:bg-foreground/10 focus-visible:bg-foreground/10 focus-visible:border-border ring-ring ring-offset-background',
         ghost:
-          'bg-transparent text-inherit border-transparent hover:bg-gray-200 hover:border-gray-200 focus:border-gray-200 focus:ring-2 focus-visible:bg-gray-200 focus-visible:ring-1 focus-visible:border-gray-200/90 focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:border-gray-200 ring-blue-600 whitespace-nowrap text-nowrap disabled:cursor-not-allowed disabled:bg-gray-200/90 disabled:border-gray-200/90',
+          'bg-transparent text-inherit border-transparent hover:bg-background focus-visible:bg-background focus-visible:border-border ring-ring ring-offset-background',
+        icon: 'bg-background text-foreground hover:bg-foreground/10 border border-background focus:border-foreground/10 focus-visible:bg-foreground/10 focus-visible:border-foreground/10 ring-ring ring-offset-background disabled:bg-foreground/10 disabled:border-foreground/10',
       },
       size: {
         default: 'h-9 px-3',

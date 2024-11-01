@@ -3,7 +3,7 @@ import { cn } from '@/app/lib/utils'
 export default function Loader({ className = '' }: { className?: string }) {
   return (
     <svg
-      className={cn(`h-3.5 w-3.5 animate-spin text-black dark:text-white`, className)}
+      className={cn(`text-foreground dark:text-foreground h-3.5 w-3.5 animate-spin`, className)}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

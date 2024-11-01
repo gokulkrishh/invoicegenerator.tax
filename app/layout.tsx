@@ -83,8 +83,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-primary font-sans antialiased`}>
-        <ThemeProvider enableSystem={false} enableColorScheme={false}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-background font-sans text-foreground antialiased`}
+      >
+        <ThemeProvider enableColorScheme enableSystem>
           <FormProvider>
             <CurrencyProvider>
               <Toaster position="top-center" richColors />

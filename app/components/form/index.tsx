@@ -124,7 +124,7 @@ export default function Form() {
                 <span>
                   saved in{' '}
                   <Link
-                    className="underline"
+                    className="rounded-sm underline underline-offset-2 outline-none ring-ring ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2"
                     target="_blank"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
                   >
@@ -149,7 +149,7 @@ export default function Form() {
           />
         </div>
       </div>
-      <div className="flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-gray-300 p-4 px-4 print:hidden">
+      <div className="flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-border p-4 px-4 print:hidden">
         <form ref={formRef} onSubmit={onSubmitHandler} className="w-[820px] lg:w-full">
           <div className="flex w-full justify-between">
             <div className="flex w-full max-w-md flex-col gap-3">
@@ -352,7 +352,7 @@ Bank Name: State Bank of India`}
           </div>
 
           <div className="mt-5 flex w-full justify-end">
-            <Button disabled={formLoading} type="submit">
+            <Button variant={'secondary'} disabled={formLoading} type="submit">
               {formLoading ? <Loader /> : null}
               Download as PDF
             </Button>
@@ -365,7 +365,9 @@ Bank Name: State Bank of India`}
           <h3 className="w-fit font-semibold">Preview:</h3>
           <p className="inline-flex items-center gap-1 text-sm">
             Press{' '}
-            <kbd className="rounded-md border border-gray-300 p-0.5 px-1 font-mono font-medium text-black">cmd + p</kbd>{' '}
+            <kbd className="rounded-md border border-border p-0.5 px-1 font-mono font-medium text-foreground">
+              cmd + p
+            </kbd>{' '}
             to print or save it!
           </p>
         </div>
@@ -380,10 +382,7 @@ Bank Name: State Bank of India`}
               <ClipboardButton data={formData} />
             </div>
           </div>
-          <textarea
-            defaultValue={JSON.stringify(formData, null, 2)}
-            className="relative flex h-[630px] w-full flex-col gap-2.5 overflow-auto text-wrap rounded-lg border border-gray-300 p-4 px-4 font-mono text-sm"
-          />
+          <TextArea className="white h-[620px] font-mono" defaultValue={JSON.stringify(formData, null, 2)} readOnly />
         </div>
       ) : null}
     </>
