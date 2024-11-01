@@ -1,13 +1,14 @@
-import { cn } from '@/app/lib/utils'
+import { cn, formatCurrency } from '@/app/lib/utils'
 
 import { FormData } from './context/form'
 
 type PreviewProps = {
   formData: FormData
   totalItemsAmount: string
+  currencyCode: string
 }
 
-export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
+export default function Preview({ totalItemsAmount, formData, currencyCode }: PreviewProps) {
   return (
     <div
       className={cn(
@@ -84,7 +85,7 @@ export default function Preview({ totalItemsAmount, formData }: PreviewProps) {
                   <span>{item.price}</span>
                   <span>{item.quantity}</span>
                   <span>{item.description}</span>
-                  <span>{item.totalAmount}</span>
+                  <span>{formatCurrency(item.totalAmount, 'en', currencyCode)}</span>
                 </div>
               )
             })}

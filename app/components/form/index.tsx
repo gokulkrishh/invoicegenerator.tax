@@ -66,7 +66,7 @@ export default function Form() {
       toast.success('Downloading now, please wait a moment.', { duration: 5000, className: 'rounded-lg' })
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
-        body: JSON.stringify({ formData, totalItemsAmount }),
+        body: JSON.stringify({ formData, totalItemsAmount, currencyCode: selectedCurrency.code }),
       })
 
       if (!response.ok) {
@@ -394,7 +394,7 @@ Bank Name: State Bank of India`}
             to print or save it!
           </p>
         </div>
-        <Preview formData={previewData} totalItemsAmount={totalItemsAmount} />
+        <Preview formData={previewData} totalItemsAmount={totalItemsAmount} currencyCode={selectedCurrency.code} />
       </div>
 
       {devMode ? (

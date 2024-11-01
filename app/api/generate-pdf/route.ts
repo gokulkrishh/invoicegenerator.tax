@@ -14,9 +14,11 @@ export async function POST(request: NextRequest) {
   const {
     formData,
     totalItemsAmount,
+    currencyCode,
   }: {
     formData: FormData
     totalItemsAmount: string
+    currencyCode: string
   } = await request.json()
 
   try {
@@ -55,7 +57,9 @@ export async function POST(request: NextRequest) {
 
     // Import the Preview component and render it to HTML
     const PreviewComponent = (await import(`@/app/components/preview`)).default
-    const htmlTemplate = ReactDOMServer.renderToStaticMarkup(PreviewComponent({ formData, totalItemsAmount }))
+    const htmlTemplate = ReactDOMServer.renderToStaticMarkup(
+      PreviewComponent({ formData, totalItemsAmount, currencyCode }),
+    )
     await page.setContent(await htmlTemplate, { waitUntil: 'networkidle0' })
 
     //  Add Tailwind CSS to the page
