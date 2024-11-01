@@ -37,9 +37,7 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
   }, [defaultValue])
 
   const getTotalAmount = (item: ItemsData) => {
-    return isNaN(item.price || NaN)
-      ? undefined
-      : formatCurrency((item.price || 0) * item.quantity, 'en', selectedCurrency.code)
+    return isNaN(item.price || NaN) ? undefined : (item.price || 0) * item.quantity
   }
 
   const addItem = () => {
@@ -127,7 +125,7 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
                   label={`${index === 0 ? 'Amount' : ''}`}
                   className="max-w-38 w-full tabular-nums"
                   placeholder={String(item.totalAmount)}
-                  value={item.totalAmount}
+                  value={formatCurrency(item.totalAmount, 'en', selectedCurrency.code)}
                   readOnly
                   disabled
                 />
