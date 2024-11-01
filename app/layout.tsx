@@ -22,7 +22,8 @@ const geistMono = localFont({
 })
 
 const title = 'Invoice Generator'
-const description = 'Just a dumb free invoice generator!'
+const description =
+  'Just a dumb free invoice generator! Enter your details and download your invoice as pdf. No sign-up required!'
 const url = 'https://invoicegenerator.tax'
 
 export const metadata: Metadata = {
@@ -43,8 +44,8 @@ export const metadata: Metadata = {
     url,
     images: [
       {
-        type: 'image/jpeg',
-        url: '/og/1.jpeg',
+        type: 'image/gif',
+        url: '/og/og.gif',
         width: 1200,
         height: 630,
         alt: 'Invoice Generator',
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
     creator: '@gokul_i',
     images: [
       {
-        type: 'image/jpeg',
-        url: '/og/1.jpeg',
+        type: 'image/gif',
+        url: '/og/og.gif',
         width: 1920,
         height: 1080,
         alt: 'Invoice Generator',

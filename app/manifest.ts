@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Invoice Generator',
     short_name: 'Invoice Generator',
-    description: 'Just a dumb free invoice generator!',
+    description:
+      'Just a dumb free invoice generator! Enter your details and download your invoice as pdf. No sign-up required!',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

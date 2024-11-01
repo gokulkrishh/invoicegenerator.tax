@@ -1,10 +1,10 @@
 <a href="https://invoicegenerator.tax">
-<p align="center"><img alt="Invoice Generator is just a dumb free invoice generator and it happens to be an open source" width="100" height="100" src="./public/logo.svg"></p>
+<p align="center"><img alt="Just a dumb free invoice generator! Enter your details and download your invoice as pdf. No sign-up required!" width="100" height="100" src="./public/logo.svg"></p>
   <h1 align="center"><a href="https://invoicegenerator.tax">Invoice Generator</a></h1>
 </a>
 
 <p align="center">
-  Invoice Generator is just a dumb free invoice generator and it happens to be an open source.
+  Just a dumb free invoice generator! Enter your details and download your invoice as pdf. No sign-up required!
 </p>
 
 <p align="center">
@@ -23,13 +23,14 @@
 
 ### Introduction
 
-Invoice Generator is just a dumb free invoice generator and it happens to be an open source.
+Just a dumb free invoice generator! Enter your details and download your invoice as pdf. No sign-up required!
 
 ### Tech Stack
 
-- [Next.js](https://nextjs.org/) – framework
+- [Next.js](https://nextjs.org/) – Framework
 - [Tailwind](https://tailwindcss.com/) – CSS
-- [Vercel](https://vercel.com/) – hosting
+- [Vercel](https://vercel.com/) – Hosting
+- [Puppeteer](https://pptr.dev/) – PDF download
 
 ### Contributions
 
