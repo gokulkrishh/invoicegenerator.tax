@@ -90,7 +90,7 @@ export default function RootLayout({
         <ThemeProvider enableColorScheme enableSystem>
           <FormProvider>
             <CurrencyProvider>
-              <Toaster position="top-center" richColors />
+              <Toaster position="top-center" />
               {children}
             </CurrencyProvider>
           </FormProvider>
