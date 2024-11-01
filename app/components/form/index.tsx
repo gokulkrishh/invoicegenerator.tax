@@ -55,7 +55,7 @@ export default function Form() {
     event.preventDefault()
     try {
       setFormLoading(true)
-      toast.success('Downloading now, please wait a moment.', { duration: 5000, className: 'rounded-full' })
+      toast.success('Downloading now, please wait a moment.', { duration: 5000, className: 'rounded-lg' })
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
         body: JSON.stringify({ formData, totalItemsAmount }),
@@ -84,7 +84,7 @@ export default function Form() {
       // Release the object URL
       URL.revokeObjectURL(url)
     } catch (error) {
-      toast.error('Error occurred, please try again.', { duration: 4000, className: 'rounded-full' })
+      toast.error('Error occurred, please try again.', { duration: 4000, className: 'rounded-lg' })
       console.error('Error generating PDF:', error)
     } finally {
       setFormLoading(false)
@@ -376,7 +376,7 @@ Bank Name: State Bank of India`}
                   />
                 </svg>
               )}
-              Download as PDF
+              Download
             </Button>
           </div>
         </form>
