@@ -38,12 +38,20 @@ export default function Form() {
     if (localInvoiceData) {
       setFormData(JSON.parse(localInvoiceData) as FormData)
     }
-    if (localDevMode) {
+    if (localInvoiceData && localDevMode) {
       setDevMode(JSON.parse(localDevMode) as boolean)
     }
     setSavedToLocal(!!localInvoiceData)
     setLoading(false)
   }, [setFormData])
+
+  const onChangeDevMode = () => {
+    setDevMode(!devMode)
+    const localInvoiceData = localStorage.getItem('invoice-form-data')
+    if (localInvoiceData) {
+      localStorage.setItem('invoice-dev-mode', JSON.stringify(!devMode))
+    }
+  }
 
   const totalItemsAmount = formatCurrency(
     parseFloat(formData.items?.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0).toString()),
@@ -138,14 +146,7 @@ export default function Form() {
         </p>
         <div className="mb-2 flex gap-4 max-sm:justify-between">
           <Switch defaultValue={savedToLocal} label="Save to localStorage" onChangeCallback={handleSaveToLocal} />
-          <Switch
-            defaultValue={devMode}
-            label="Developer Mode"
-            onChangeCallback={() => {
-              setDevMode(!devMode)
-              localStorage.setItem('invoice-dev-mode', JSON.stringify(!devMode))
-            }}
-          />
+          <Switch defaultValue={devMode} label="Developer Mode" onChangeCallback={onChangeDevMode} />
         </div>
       </div>
       <div className="flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-border p-4 px-4 print:hidden">

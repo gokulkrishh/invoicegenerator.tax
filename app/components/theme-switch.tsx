@@ -23,8 +23,6 @@ const ThemeSwitch = () => {
     return null
   }
 
-  console.log('theme', theme)
-
   return (
     <RadioGroup.Root
       className="flex h-fit w-fit items-center justify-between rounded-full border border-border"

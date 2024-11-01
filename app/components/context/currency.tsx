@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode, createContext, useContext, useState } from 'react'
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 
 import currencyData from '@/app/data/currency.json'
 
@@ -29,8 +29,19 @@ const defaultCurrency: Currency = currencyData.EUR
 export const CurrencyProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(defaultCurrency)
 
+  useEffect(() => {
+    const localInvoiceData = localStorage.getItem('invoice-form-data')
+    const localCurrencyCode = localStorage.getItem('invoice-currency')
+
+    if (localInvoiceData && localCurrencyCode && data[localCurrencyCode]) {
+      setSelectedCurrency(data[localCurrencyCode])
+    }
+  })
+
   const onChangeHandler = (code: Currency['code']) => {
     const currencyData = data[code]
+    const localInvoiceData = localStorage.getItem('invoice-form-data')
+    if (localInvoiceData) localStorage.setItem('invoice-currency', code)
     setSelectedCurrency(currencyData)
   }
 

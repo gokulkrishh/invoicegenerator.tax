@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { cn } from '@/app/lib/utils'
 
@@ -14,6 +14,10 @@ type SelectProps = {
 
 export default function Select({ className, label, data, defaultSelected, onChangeCallback, ...props }: SelectProps) {
   const [selected, setSelected] = React.useState<string>(defaultSelected || '')
+
+  useEffect(() => {
+    setSelected(defaultSelected)
+  }, [defaultSelected])
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChangeCallback?.(event.target.value)
