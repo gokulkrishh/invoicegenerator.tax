@@ -36,7 +36,7 @@ export const CurrencyProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (localInvoiceData && localCurrencyCode && data[localCurrencyCode]) {
       setSelectedCurrency(data[localCurrencyCode])
     }
-  })
+  }, [setSelectedCurrency])
 
   const onChangeHandler = (code: Currency['code']) => {
     const currencyData = data[code]
