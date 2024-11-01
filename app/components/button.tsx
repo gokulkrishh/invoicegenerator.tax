@@ -7,7 +7,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: '',
+        default:
+          'bg-foreground text-background hover:bg-foreground/80 focus:bg-foreground/80 focus-visible:bg-foreground/80 focus-visible:border-border/85 focus-visible:ring-2 focus-visible:ring-offset-2 ring-ring ring-offset-background disabled:bg-foreground/90 disabled:border-border/85',
         primary:
           'bg-blue-600 text-foreground hover:bg-blue-600/90  border border-blue-600 focus:border-blue-600/90 focus-visible:bg-blue-600/90 focus-visible:border-blue-600/90 ring-ring ring-offset-background disabled:bg-blue-600/90 disabled:border-blue-600/90',
         secondary:

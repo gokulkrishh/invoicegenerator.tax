@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
-import Button from './components/button'
 import CurrencySelect from './components/currency-select'
 import Form from './components/form'
 import GithubStarButton from './components/github-link'

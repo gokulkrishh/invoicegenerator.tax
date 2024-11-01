@@ -10,7 +10,6 @@ import Button from '@/app/components/button'
 import ClipboardButton from '@/app/components/clipboard'
 import { useCurrency } from '@/app/components/context/currency'
 import { FormData, getInitialFormData, useFormData } from '@/app/components/context/form'
-import { formatCurrency } from '@/app/components/inputs/currency'
 import DateInput from '@/app/components/inputs/date'
 import Switch from '@/app/components/inputs/switch'
 import Text from '@/app/components/inputs/text'
@@ -19,7 +18,7 @@ import ItemsTable, { ItemsData } from '@/app/components/items-table'
 import Loader from '@/app/components/loader'
 import Preview from '@/app/components/preview'
 
-import { formatDate, formatDateForInput } from '@/app/lib/utils'
+import { formatCurrency, formatDate, formatDateForInput } from '@/app/lib/utils'
 
 const IGNORE_FIELDS: (keyof FormData)[] = []
 
@@ -352,7 +351,7 @@ Bank Name: State Bank of India`}
           </div>
 
           <div className="mt-5 flex w-full justify-end">
-            <Button variant={'secondary'} disabled={formLoading} type="submit">
+            <Button variant={'default'} disabled={formLoading} type="submit">
               {formLoading ? <Loader /> : null}
               Download as PDF
             </Button>

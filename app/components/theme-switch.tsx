@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { useTheme } from 'next-themes'
 
-import { cn } from '../lib/utils'
-
 type Theme = 'light' | 'dark' | 'system'
 
 const ThemeSwitch = () => {

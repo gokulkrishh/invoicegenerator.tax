@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 
 import Button from '@/app/components/button'
-import { formatCurrency } from '@/app/components/inputs/currency'
 import Number from '@/app/components/inputs/number'
 import Text from '@/app/components/inputs/text'
 
-import { cn } from '../lib/utils'
+import { cn, formatCurrency } from '@/app/lib/utils'
+
 import { useCurrency } from './context/currency'
 
 export type ItemsData = {
