@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
+import { Geist, Geist_Mono } from 'next/font/google'
 
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from 'sonner'
@@ -9,16 +9,16 @@ import { CurrencyProvider } from '@/app/components/context/currency'
 import { FormProvider } from './components/context/form'
 import './globals.css'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
+const geistSans = Geist({
+  preload: true,
+  subsets: ['latin'],
   variable: '--font-geist-sans',
-  weight: '100 900',
 })
 
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  preload: true,
   variable: '--font-geist-mono',
-  weight: '100 900',
 })
 
 const title = 'Invoice Generator'
