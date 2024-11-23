@@ -8,7 +8,7 @@ export default async function GithubStarButton() {
     <Link
       target="_blank"
       href={`https://github.com/${owner}/${repo}`}
-      className="group inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-border bg-foreground/10 px-2 font-medium text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/20 focus:border-border focus:bg-background focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
+      className="group inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-lg border border-border bg-foreground/10 px-2 font-medium text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/20 focus:border-border focus:bg-background focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0"
     >
       <div className="flex items-center gap-1.5">
         <svg

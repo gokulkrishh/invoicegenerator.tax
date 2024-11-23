@@ -66,7 +66,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
 
         <div className="mt-10 flex w-full flex-col">
           <div className="flex w-full max-w-full flex-col border-b border-border text-sm">
-            <div className="grid grid-cols-[40px,1.5fr,80px,80px,1.5fr,1fr] items-center gap-2 border-b border-border">
+            <div className="grid grid-cols-[40px_1.5fr_80px_80px_1.5fr_1fr] items-center gap-2 border-b border-border">
               <span className="p-2 font-semibold">No.</span>
               <span className="font-semibold">Name</span>
               <span className="font-semibold">Price</span>
@@ -77,7 +77,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
             {formData.items?.map((item, index) => {
               return (
                 <div
-                  className="grid grid-cols-[40px,1.5fr,80px,80px,1.5fr,1fr] items-center gap-2"
+                  className="grid grid-cols-[40px_1.5fr_80px_80px_1.5fr_1fr] items-center gap-2"
                   key={`${item.id}-${index}`}
                 >
                   <span className="p-2">{item.id}.</span>

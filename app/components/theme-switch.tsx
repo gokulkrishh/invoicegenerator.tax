@@ -35,7 +35,7 @@ const ThemeSwitch = () => {
     >
       <RadioGroup.Item
         className={
-          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
+          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
         }
         value={'system'}
         id="system"
@@ -52,7 +52,7 @@ const ThemeSwitch = () => {
       </RadioGroup.Item>
       <RadioGroup.Item
         className={
-          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
+          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
         }
         value={'light'}
         id="light"
@@ -83,7 +83,7 @@ const ThemeSwitch = () => {
       </RadioGroup.Item>
       <RadioGroup.Item
         className={
-          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
+          'inline-flex h-8 w-8 shrink-0 items-center justify-center gap-2 whitespace-nowrap text-nowrap rounded-full border-0 border-border bg-transparent text-sm font-medium text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:bg-foreground/10 focus:border-border/85 focus:bg-foreground/10 focus:ring-2 focus:ring-offset-0 focus-visible:border-border/85 focus-visible:bg-background/85 focus-visible:ring-2 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:bg-background/70 data-[state=checked]:bg-foreground/20 [&>svg]:pointer-events-none [&>svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-inherit'
         }
         value={'dark'}
         id="dark"

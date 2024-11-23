@@ -7,8 +7,6 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    transparent: 'transparent',
-    current: 'currentColor',
     extend: {
       fontFamily: {
         sans: 'var(--font-geist-sans)',

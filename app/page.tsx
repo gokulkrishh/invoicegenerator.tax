@@ -21,7 +21,7 @@ export default async function Home() {
     <div className="m-auto w-full px-4 py-4 md:max-w-4xl md:px-6 lg:max-w-[1080px]">
       <header className="flex flex-col justify-between md:flex-row print:hidden">
         <Link
-          className="flex items-center gap-1.5 rounded-md outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:opacity-80 focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[1.02]"
+          className="flex items-center gap-1.5 rounded-md outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:opacity-80 focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[1.02]"
           href="/"
         >
           <LogoSVG className="h-6 w-6 text-foreground" />
@@ -40,7 +40,7 @@ export default async function Home() {
         <div className="flex items-center gap-1">
           <span className="mr-1.5 inline-flex">👋</span> Built by
           <Link
-            className="flex items-center rounded-md underline outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:opacity-80 focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[1.02]"
+            className="flex items-center rounded-md underline outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out hover:opacity-80 focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[1.02]"
             href="https://github.com/gokulkrishh"
             target="_blank"
           >

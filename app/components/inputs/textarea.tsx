@@ -29,7 +29,7 @@ export default function TextArea({ className, defaultValue, label, onChangeCallb
       {label ? <span className="font-medium">{label}</span> : null}
       <textarea
         className={cn(
-          'inline-flex rounded-lg border border-border p-2 text-sm text-foreground outline-none ring-ring ring-offset-background transition-all duration-200 ease-in-out focus:border-border focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-foreground/10',
+          'inline-flex rounded-lg border border-border p-2 text-sm text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out focus:border-border focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-foreground/10',
           className,
         )}
         value={value}

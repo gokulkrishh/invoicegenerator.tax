@@ -131,7 +131,7 @@ export default function Form() {
                 <span>
                   saved in{' '}
                   <Link
-                    className="rounded-sm underline underline-offset-2 outline-none ring-ring ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2"
+                    className="rounded-xs underline underline-offset-2 outline-hidden ring-ring ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2"
                     target="_blank"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
                   >
