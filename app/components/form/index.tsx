@@ -131,7 +131,7 @@ export default function Form() {
                 <span>
                   saved in{' '}
                   <Link
-                    className="rounded-xs underline underline-offset-2 outline-hidden ring-ring ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2"
+                    className="ring-ring ring-offset-background rounded-xs underline underline-offset-2 outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2"
                     target="_blank"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
                   >
@@ -149,7 +149,7 @@ export default function Form() {
           <Switch defaultValue={devMode} label="Developer Mode" onChangeCallback={onChangeDevMode} />
         </div>
       </div>
-      <div className="flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-border p-4 px-4 print:hidden">
+      <div className="border-border flex w-full flex-col gap-2.5 overflow-auto rounded-lg border p-4 px-4 print:hidden">
         <form ref={formRef} onSubmit={onSubmitHandler} className="w-[820px] lg:w-full">
           <div className="flex w-full justify-between">
             <div className="flex w-full max-w-md flex-col gap-3">
@@ -307,7 +307,7 @@ export default function Form() {
               }}
             />
 
-            <h2 className="mb-5 mt-2 w-full pr-6 text-right text-xl font-semibold tracking-tight">
+            <h2 className="mt-2 mb-5 w-full pr-6 text-right text-xl font-semibold tracking-tight">
               Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
             </h2>
           </div>
@@ -383,12 +383,12 @@ Bank Name: State Bank of India`}
         </form>
       </div>
 
-      <div className="mb-5 mt-10 flex w-full flex-col overflow-auto">
+      <div className="mt-10 mb-5 flex w-full flex-col overflow-auto">
         <div className="flex justify-between print:hidden">
           <h3 className="w-fit font-semibold">Preview:</h3>
           <p className="inline-flex items-center gap-1 text-sm">
             Press{' '}
-            <kbd className="rounded-md border border-border p-0.5 px-1 font-mono font-medium text-foreground">
+            <kbd className="border-border text-foreground rounded-md border p-0.5 px-1 font-mono font-medium">
               cmd + p
             </kbd>{' '}
             to print or save it!

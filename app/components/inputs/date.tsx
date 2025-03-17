@@ -29,7 +29,7 @@ export default function Date({ className, label, defaultValue, onChangeCallback,
       {label ? <span className="font-medium">{label}</span> : null}
       <input
         className={cn(
-          'custom-date h-[36px] rounded-lg border border-border bg-background p-2 text-sm text-foreground outline-hidden ring-ring ring-offset-background transition-all duration-200 ease-in-out focus:border-border focus:ring-2 focus:ring-offset-2 focus-visible:border-border focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-foreground/10',
+          'custom-date border-border bg-background text-foreground ring-ring ring-offset-background focus:border-border focus-visible:border-border disabled:bg-foreground/10 h-[36px] rounded-lg border p-2 text-sm outline-hidden transition-all duration-200 ease-in-out focus:ring-2 focus:ring-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed',
           className,
         )}
         type="date"

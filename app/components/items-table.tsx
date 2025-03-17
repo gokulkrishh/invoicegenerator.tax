@@ -123,7 +123,7 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
               <div className="flex w-fit flex-col gap-3 rounded-md px-2 py-2">
                 <Text
                   label={`${index === 0 ? 'Amount' : ''}`}
-                  className="max-w-38 w-full tabular-nums"
+                  className="w-full max-w-38 tabular-nums"
                   placeholder={String(item.totalAmount)}
                   value={formatCurrency(item.totalAmount, 'en', selectedCurrency.code)}
                   readOnly
@@ -174,7 +174,7 @@ function ItemsTable({ onChangeCallback, defaultValue }: ItemsTableProps) {
         })}
       </div>
 
-      <Button type="button" variant="ghost" className="mr-7 mt-4 w-fit self-start text-foreground" onClick={addItem}>
+      <Button type="button" variant="ghost" className="text-foreground mt-4 mr-7 w-fit self-start" onClick={addItem}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>

@@ -12,7 +12,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
   return (
     <div
       className={cn(
-        'mt-2 flex w-full flex-col gap-2.5 overflow-auto rounded-lg border border-border p-4 px-4 text-sm leading-6 lg:max-w-[1080px] print:border-0',
+        'border-border mt-2 flex w-full flex-col gap-2.5 overflow-auto rounded-lg border p-4 px-4 text-sm leading-6 lg:max-w-[1080px] print:border-0',
       )}
     >
       <div className="w-[860px] md:w-full">
@@ -65,8 +65,8 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
         </div>
 
         <div className="mt-10 flex w-full flex-col">
-          <div className="flex w-full max-w-full flex-col border-b border-border text-sm">
-            <div className="grid grid-cols-[40px_1.5fr_80px_80px_1.5fr_1fr] items-center gap-2 border-b border-border">
+          <div className="border-border flex w-full max-w-full flex-col border-b text-sm">
+            <div className="border-border grid grid-cols-[40px_1.5fr_80px_80px_1.5fr_1fr] items-center gap-2 border-b">
               <span className="p-2 font-semibold">No.</span>
               <span className="font-semibold">Name</span>
               <span className="font-semibold">Price</span>
@@ -90,7 +90,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
               )
             })}
           </div>
-          <h6 className="mb-6 mt-10 w-full text-right text-xl font-semibold tracking-tight">
+          <h6 className="mt-10 mb-6 w-full text-right text-xl font-semibold tracking-tight">
             Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
           </h6>
         </div>
@@ -101,7 +101,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
         </div>
 
         {formData.footnote1?.length || formData.footnote2?.length ? (
-          <hr className="print:mt-30 mt-24 h-[1px] w-full border-border" />
+          <hr className="border-border mt-24 h-[1px] w-full print:mt-30" />
         ) : null}
 
         <div className="mt-2 flex w-full justify-between gap-10 leading-6">
