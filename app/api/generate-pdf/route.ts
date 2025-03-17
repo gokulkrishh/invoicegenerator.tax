@@ -6,7 +6,7 @@ import { FormData } from '@/app/components/context/form'
 
 export const maxDuration = 60
 
-const REMOTE_CHROME_EXECUTABLE = `https://github.com/Sparticuz/chromium/releases/download/v133.0.0/chromium-v129.0.0-pack.tar`
+const REMOTE_CHROME_EXECUTABLE = `https://github.com/Sparticuz/chromium/releases/download/v133.0.0/chromium-v133.0.0-pack.tar`
 
 const isProd = process.env.NODE_ENV === 'production'
 
