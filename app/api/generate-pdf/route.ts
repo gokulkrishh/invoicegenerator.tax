@@ -6,7 +6,7 @@ import { FormData } from '@/app/components/context/form'
 
 export const maxDuration = 60
 
-const REMOTE_CHROME_EXECUTABLE = `https://github.com/Sparticuz/chromium/releases/download/v129.0.0/chromium-v129.0.0-pack.tar`
+const REMOTE_CHROME_EXECUTABLE = `https://github.com/Sparticuz/chromium/releases/download/v133.0.0/chromium-v129.0.0-pack.tar`
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -60,11 +60,34 @@ export async function POST(request: NextRequest) {
     const htmlTemplate = ReactDOMServer.renderToStaticMarkup(
       PreviewComponent({ formData, totalItemsAmount, currencyCode }),
     )
-    await page.setContent(await htmlTemplate, { waitUntil: 'networkidle0' })
+
+    // Add Google Fonts stylesheet link for Geist fonts
+    const htmlWithFonts = `
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+       <style>
+         body {
+           font-family: 'Geist', sans-serif;
+           padding: 40px 24px;
+           font-size: 14px;
+         }
+       </style>
+     </head>
+     <body>
+       ${htmlTemplate}
+     </body>
+     </html>
+   `
+
+    await page.setContent(await htmlWithFonts, { waitUntil: 'networkidle0' })
 
     //  Add Tailwind CSS to the page
     await page.addScriptTag({ url: 'https://cdn.tailwindcss.com' })
-    await page.addScriptTag({ url: 'https://unpkg.com/tailwindcss-cdn' })
+    await page.addScriptTag({ url: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4' })
 
     // Generate the PDF
     const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true })

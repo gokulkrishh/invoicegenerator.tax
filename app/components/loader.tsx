@@ -1,19 +1,33 @@
-import { cn } from '@/app/lib/utils'
+import { cn } from '../lib/utils'
 
-export default function Loader({ className = '' }: { className?: string }) {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  size?: 'sm' | 'md' | 'lg'
+  color?: string
+}
+
+export default function Loader({ className, size = 'sm', color = '#262626', ...props }: Props) {
   return (
-    <svg
-      className={cn(`text-foreground dark:text-foreground h-3.5 w-3.5 animate-spin`, className)}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
+    <div
+      className={cn(
+        'relative h-8 w-8',
+        { 'h-4 w-4': size === 'sm', 'h-8 w-8': size === 'md', 'h-12 w-12': size === 'lg' },
+        className,
+      )}
+      {...props}
     >
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      ></path>
-    </svg>
+      <div className="relative top-[50%] left-[50%] h-[inherit] w-[inherit]">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="animate-spinner absolute h-[8%] w-[24%] rounded-sm bg-neutral-800 opacity-100"
+            style={{
+              backgroundColor: color || 'var(--color-neutral-800)',
+              transform: `rotate(${i * 30}deg) translate(146%)`,
+              animationDelay: `${-1.1 + i * 0.1}s`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
