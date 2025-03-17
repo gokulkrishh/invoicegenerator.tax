@@ -41,7 +41,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
         </div>
 
         <div className="mt-5 flex w-full justify-between">
-          <div className="flex w-full max-w-md flex-col gap-3">
+          <div className="flex w-full max-w-sm flex-col gap-3">
             <p className="mt-1 flex w-full max-w-xs flex-col whitespace-pre-line">
               <span className="text-base font-semibold">To Address</span>
               {formData.toAddress}
