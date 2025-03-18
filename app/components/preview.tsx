@@ -12,7 +12,7 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
   return (
     <div
       className={cn(
-        'border-border mt-2 flex w-full flex-col gap-2.5 overflow-auto rounded-lg border p-4 px-4 text-sm leading-6 lg:max-w-[1080px] print:border-0',
+        'border-border mt-2 flex w-full flex-col gap-2.5 overflow-auto rounded-lg border p-4 px-4 text-sm! leading-6 lg:max-w-[1080px] print:border-0',
       )}
     >
       <div className="w-[860px] md:w-full">
@@ -101,10 +101,10 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
         </div>
 
         {formData.footnote1?.length || formData.footnote2?.length ? (
-          <hr className="border-border mt-24 h-[1px] w-full print:mt-30" />
+          <hr className="border-border mt-40 h-[1px] w-full" />
         ) : null}
 
-        <div className="mt-2 flex w-full justify-between gap-10 leading-6">
+        <div className="mt-3 flex w-full justify-between gap-10 leading-6">
           <p className="mt-1 flex w-full max-w-xs flex-col gap-3 whitespace-pre-line">{formData.footnote1}</p>
           <p className="mt-1 flex w-full max-w-xs flex-col gap-3 whitespace-pre-line">{formData.footnote2}</p>
         </div>

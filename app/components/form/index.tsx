@@ -352,9 +352,9 @@ Bank Name: State Bank of India`}
           </div>
 
           <div className="mt-5 flex w-full justify-end">
-            <Button className="w-28" variant="default" disabled={formLoading} type="submit">
+            <Button className="w-28 gap-2" variant="default" disabled={formLoading} type="submit">
               {formLoading ? (
-                <Loader />
+                <Loader className="!bg-white dark:bg-black!" />
               ) : (
                 <>
                   <svg
@@ -377,9 +377,9 @@ Bank Name: State Bank of India`}
                       fill="currentColor"
                     />
                   </svg>
-                  Download
                 </>
               )}
+              Download
             </Button>
           </div>
         </form>

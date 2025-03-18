@@ -72,8 +72,8 @@ export async function POST(request: NextRequest) {
        <style>
          body {
            font-family: 'Geist', sans-serif;
-           padding: 40px 24px;
-           font-size: 14px;
+           padding: 40px;
+           font-size: 14px !important;
          }
        </style>
      </head>
