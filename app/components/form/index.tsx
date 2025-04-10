@@ -354,7 +354,7 @@ Bank Name: State Bank of India`}
           <div className="mt-5 flex w-full justify-end">
             <Button className="w-28 gap-2" variant="default" disabled={formLoading} type="submit">
               {formLoading ? (
-                <Loader className="!bg-white dark:bg-black!" />
+                <Loader className="bg-black" />
               ) : (
                 <>
                   <svg

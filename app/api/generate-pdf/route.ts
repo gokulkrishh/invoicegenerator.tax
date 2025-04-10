@@ -63,31 +63,28 @@ export async function POST(request: NextRequest) {
 
     // Add Google Fonts stylesheet link for Geist fonts
     const htmlWithFonts = `
-     <!DOCTYPE html>
-     <html lang="en">
-     <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
-       <style>
-         body {
-           font-family: 'Geist', sans-serif;
-           padding: 40px;
-           font-size: 14px !important;
-         }
-       </style>
-     </head>
-     <body>
-       ${htmlTemplate}
-     </body>
-     </html>
-   `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+          body {
+            font-family: 'Geist', sans-serif;
+            padding: 40px;
+            font-size: 14px !important;
+          }
+        </style>
+      </head>
+      <body>
+        ${htmlTemplate}
+      </body>
+      </html>
+      `
 
     await page.setContent(await htmlWithFonts, { waitUntil: 'networkidle0' })
-
-    //  Add Tailwind CSS to the page
-    await page.addScriptTag({ url: 'https://cdn.tailwindcss.com' })
-    await page.addScriptTag({ url: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4' })
 
     // Generate the PDF
     const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true })
