@@ -1,0 +1,27 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Frontend Structure (app/ directory)
+
+This rule describes the structure and key files within the `app/` directory, which handles the frontend rendering and routing in this Next.js project using the App Router.
+
+## Core Files
+
+*   [layout.tsx](mdc:app/layout.tsx): Defines the root layout shared across all pages. It typically includes `<html>` and `<body>` tags.
+*   [page.tsx](mdc:app/page.tsx): Represents the UI for the root URL path (`/`). This is the main entry page for the application.
+*   [globals.css](mdc:app/globals.css): Contains global CSS styles applied throughout the application, often including base styles and Tailwind directives.
+*   [icon.svg](mdc:app/icon.svg): The application's favicon file.
+*   [manifest.ts](mdc:app/manifest.ts): Generates the `manifest.json` file for Progressive Web App (PWA) features.
+*   [sitemap.ts](mdc:app/sitemap.ts): Generates the `sitemap.xml` file for SEO.
+*   [robots.txt](mdc:app/robots.txt): Instructions for web crawlers (bots).
+
+## Subdirectories
+
+*   `components/`: Contains reusable UI components (e.g., buttons, cards, forms) used across different pages. *(Directory listing failed, contents inferred)*
+*   `lib/`: Likely contains utility functions, helper modules, or client-side data fetching logic.
+*   `data/`: Might store static data, mock data, or data fetching functions.
+*   `fonts/`: Contains custom font files used in the application.
+
+Refer to [project-structure.mdc](mdc:.cursor/rules/project-structure.mdc) for the overall project layout and [api.mdc](mdc:.cursor/rules/api.mdc) for backend API routes.

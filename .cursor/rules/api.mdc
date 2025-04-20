@@ -1,0 +1,17 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# API Structure (app/api/ directory)
+
+This rule describes the structure of the API routes defined within the `app/api/` directory using the Next.js App Router.
+
+## API Routes
+
+API endpoints are defined by creating a `route.ts` (or `route.js`) file within a directory inside `app/api/`. The directory name determines the route path.
+
+*   `generate-pdf/`: Contains the logic for the `/api/generate-pdf` endpoint.
+    *   [route.ts](mdc:app/api/generate-pdf/route.ts): Defines the request handler(s) (e.g., `GET`, `POST`) for this specific API endpoint, likely responsible for generating PDF documents.
+
+Refer to [project-structure.mdc](mdc:.cursor/rules/project-structure.mdc) for the overall project layout and [frontend.mdc](mdc:.cursor/rules/frontend.mdc) for the frontend application structure.

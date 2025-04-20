@@ -1,0 +1,26 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure
+
+This is a [Next.js](mdc:https:/nextjs.org) project bootstrapped with [`create-next-app`](mdc:https:/github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Key Directories
+
+*   `app/`: Contains the core application code, including pages, components, API routes, styles, and other UI-related files. See [frontend.mdc](mdc:.cursor/rules/frontend.mdc) and [api.mdc](mdc:.cursor/rules/api.mdc) for more details.
+*   `public/`: Stores static assets like images, fonts (though custom fonts are in `app/fonts/`), and other files that are served directly.
+*   `node_modules/`: Contains all project dependencies managed by npm.
+*   `.next/`: Build output directory for Next.js. Generally should not be modified directly.
+*   `.git/`: Contains Git version control information.
+*   `.vercel/`: Configuration and build output for Vercel deployments.
+*   `.husky/`: Configuration for Git hooks.
+
+## Key Files
+
+*   [package.json](mdc:package.json): Lists project dependencies and defines scripts (e.g., `npm run dev`). See [configuration.mdc](mdc:.cursor/rules/configuration.mdc).
+*   [next.config.ts](mdc:next.config.ts): Main configuration file for Next.js. See [configuration.mdc](mdc:.cursor/rules/configuration.mdc).
+*   [README.md](mdc:README.md): General information about the project.
+*   [.gitignore](mdc:.gitignore): Specifies intentionally untracked files that Git should ignore.
+*   [LICENSE](mdc:LICENSE): Project license information.

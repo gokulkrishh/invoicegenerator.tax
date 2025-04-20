@@ -1,0 +1,19 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Configuration Files
+
+This rule describes the key configuration files in the project.
+
+*   [package.json](mdc:package.json): Manages Node.js dependencies (using npm) and defines script commands (`dev`, `build`, `start`, `lint`).
+*   [next.config.ts](mdc:next.config.ts): Configures Next.js features, build process, server behavior, etc.
+*   [tsconfig.json](mdc:tsconfig.json): Configures the TypeScript compiler options for the project.
+*   [tailwind.config.ts](mdc:tailwind.config.ts): Configures Tailwind CSS, including theme customizations, plugins, and content paths.
+*   [postcss.config.mjs](mdc:postcss.config.mjs): Configuration for PostCSS, often used with Tailwind CSS for processing CSS.
+*   [.eslintrc.json](mdc:.eslintrc.json): Configuration for ESLint, the code linter.
+*   [.prettierrc](mdc:.prettierrc): Configuration for Prettier, the code formatter.
+*   [.prettierignore](mdc:.prettierignore): Specifies files and directories that Prettier should ignore.
+*   [.editorconfig](mdc:.editorconfig): Helps maintain consistent coding styles across different editors and IDEs.
+*   [.nvmrc](mdc:.nvmrc): Specifies the Node.js version recommended for the project (used by NVM - Node Version Manager).
