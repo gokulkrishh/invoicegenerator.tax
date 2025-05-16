@@ -1,5 +1,5 @@
 ---
-description:
+description: This rule describes the structure of the API routes defined within the `app/api/` directory using the Next.js App Router.
 globs:
 alwaysApply: false
 ---

@@ -1,5 +1,5 @@
 ---
-description:
+description: This rule describes the key configuration files in the project.
 globs:
 alwaysApply: false
 ---
