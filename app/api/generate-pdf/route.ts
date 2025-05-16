@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     await page.setContent(await htmlWithFonts, { waitUntil: 'networkidle0' })
 
     // Generate the PDF
-    const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true })
+    const pdfBuffer = await page.pdf({ format: 'A4', printBackground: true, scale: 0.8 })
 
     // Close the browser
     await page.close()
