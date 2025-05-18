@@ -21,6 +21,7 @@ export type FormData = {
   invoiceDate: string
   totalAmount?: number
   dueDate: string
+  logo?: string 
 }
 
 export type FormContextType = {
@@ -45,6 +46,7 @@ export const getInitialFormData = (): FormData => ({
   performanceTo: '',
   invoiceDate: '',
   dueDate: '',
+  logo: undefined,
 })
 
 export const FormProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

@@ -18,6 +18,15 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
       <div className="w-[860px] md:w-full">
         <div className="flex w-full justify-between">
           <div className="flex w-full max-w-md flex-col gap-3">
+            {formData.logo && (
+              <div className="mb-3">
+                <img 
+                  src={formData.logo} 
+                  alt="Company Logo" 
+                  className="max-h-24 max-w-48 mb-2" 
+                />
+              </div>
+            )}
             <h4 className="max-w-md text-xl font-semibold">{formData.name}</h4>
 
             <p className="mt-1 flex w-full max-w-xs flex-col whitespace-pre-line">
