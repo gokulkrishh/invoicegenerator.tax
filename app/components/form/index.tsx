@@ -17,6 +17,7 @@ import TextArea from '@/app/components/inputs/textarea'
 import ItemsTable, { ItemsData } from '@/app/components/items-table'
 import Loader from '@/app/components/loader'
 import Preview from '@/app/components/preview'
+import LogoUpload from '@/app/components/LogoUpload'
 
 import { formatCurrency, formatDate, formatDateForInput } from '@/app/lib/utils'
 
@@ -164,6 +165,12 @@ export default function Form() {
                 }}
                 defaultValue={formData.name}
                 required
+              />
+              <LogoUpload
+                defaultValue={formData.logo}
+                onChangeCallback={(value: string | undefined) => {
+                  onChangeHandler('logo', value)
+                }}
               />
             </div>
             <div className="flex w-full max-w-xs flex-col gap-3">
