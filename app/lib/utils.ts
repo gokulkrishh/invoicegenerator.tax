@@ -37,3 +37,24 @@ export function formatCurrency(value: number, locale: string, currency: string):
 
   return formattedValue
 }
+
+export function calculateDiscountAmount(
+  subtotal: number,
+  discountType: 'none' | 'fixed' | 'percentage',
+  discountValue: number
+): number {
+  if (discountType === 'none' || discountValue <= 0 || subtotal <= 0) {
+    return 0
+  }
+  
+  if (discountType === 'fixed') {
+   
+    return Math.min(discountValue, subtotal)
+  } else if (discountType === 'percentage') {
+   
+    const percentage = Math.min(Math.max(0, discountValue), 100)
+    return (subtotal * percentage) / 100
+  }
+  
+  return 0
+}

@@ -1,11 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-
 import { useEffect, useRef, useState } from 'react'
-
 import { toast } from 'sonner'
-
 import Button from '@/app/components/button'
 import ClipboardButton from '@/app/components/clipboard'
 import { useCurrency } from '@/app/components/context/currency'
@@ -18,10 +15,31 @@ import ItemsTable, { ItemsData } from '@/app/components/items-table'
 import Loader from '@/app/components/loader'
 import Preview from '@/app/components/preview'
 import LogoUpload from '@/app/components/LogoUpload'
-
+import DiscountInput from '@/app/components/discount-input'
 import { formatCurrency, formatDate, formatDateForInput } from '@/app/lib/utils'
 
 const IGNORE_FIELDS: (keyof FormData)[] = []
+
+const calculateDiscountAmount = (
+  subtotal: number,
+  discountType: 'none' | 'fixed' | 'percentage',
+  discountValue: number
+): number => {
+ 
+  
+  let amount = 0;
+  
+  if (discountType === 'fixed') {
+    amount = Number(discountValue);
+  } else if (discountType === 'percentage') {
+    amount = (subtotal * Number(discountValue)) / 100;
+  }
+  
+  
+  amount = Math.min(amount, subtotal);
+  
+  return amount;
+};
 
 export default function Form() {
   const { formData, setFormData } = useFormData()
@@ -54,8 +72,33 @@ export default function Form() {
     }
   }
 
-  const totalItemsAmount = formatCurrency(
-    parseFloat(formData.items?.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0).toString()),
+  
+  const totalItemsAmount = parseFloat(
+    formData.items?.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0).toString()
+  )
+
+  const discountAmount = calculateDiscountAmount(
+    totalItemsAmount,
+    formData.discountType,
+    Number(formData.discountValue)
+  )
+
+  const finalAmount = totalItemsAmount - discountAmount
+
+  const formattedTotalItemsAmount = formatCurrency(
+    totalItemsAmount,
+    'en',
+    selectedCurrency.code,
+  )
+
+  const formattedDiscountAmount = formatCurrency(
+    discountAmount,
+    'en',
+    selectedCurrency.code,
+  )
+
+  const formattedFinalAmount = formatCurrency(
+    finalAmount,
     'en',
     selectedCurrency.code,
   )
@@ -67,7 +110,13 @@ export default function Form() {
       toast.success('Downloading now, please wait a moment.', { duration: 5000, className: 'rounded-lg' })
       const response = await fetch('/api/generate-pdf', {
         method: 'POST',
-        body: JSON.stringify({ formData, totalItemsAmount, currencyCode: selectedCurrency.code }),
+        body: JSON.stringify({ 
+          formData, 
+          totalItemsAmount: formattedTotalItemsAmount, 
+          discountAmount: formattedDiscountAmount,
+          finalAmount: formattedFinalAmount,
+          currencyCode: selectedCurrency.code 
+        }),
       })
 
       if (!response.ok) {
@@ -79,18 +128,13 @@ export default function Form() {
       const filename = filenameMatch ? filenameMatch?.[1] : `invoice_${formData.invoiceNo}.pdf`
 
       const blob = await response.blob()
-      // Create an object URL for the Blob
       const url = URL.createObjectURL(blob)
-
-      // Create a link element and trigger the download
       const link = document.createElement('a')
       link.href = url
       link.download = filename
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
-
-      // Release the object URL
       URL.revokeObjectURL(url)
     } catch (error) {
       toast.error('Error occurred, please try again.', { duration: 4000, className: 'rounded-lg' })
@@ -314,9 +358,44 @@ export default function Form() {
               }}
             />
 
-            <h2 className="mt-2 mb-5 w-full pr-6 text-right text-xl font-semibold tracking-tight">
-              Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
-            </h2>
+            <div className="mt-4 flex w-full max-w-md">
+              <DiscountInput 
+                defaultType={formData.discountType}
+                defaultValue={formData.discountValue}
+                onChangeCallback={(type, value) => {
+                 
+                  const updatedFormData = { 
+                    ...formData, 
+                    discountType: type, 
+                    discountValue: value 
+                  };
+                  
+                  setFormData(updatedFormData);
+
+                  const isSaveToLocalEnabled = !!localStorage.getItem('invoice-form-data');
+                  handleSaveToLocal(isSaveToLocalEnabled, updatedFormData);
+                }}
+              />
+            </div>
+
+            <div className="mt-5 flex w-full flex-col items-end pr-6">
+              <div className="flex w-64 justify-between">
+                <span className="text-base font-medium">Subtotal:</span>
+                <span className="tabular-nums">{formattedTotalItemsAmount}</span>
+              </div>
+              {discountAmount > 0 && (
+                <div className="flex w-64 justify-between">
+                  <span className="text-base font-medium">
+                    Discount {formData.discountType === 'percentage' ? `(${formData.discountValue}%)` : ''}:
+                  </span>
+                  <span className="tabular-nums text-red-600">-{formattedDiscountAmount}</span>
+                </div>
+              )}
+              <div className="mt-2 flex w-64 justify-between border-t pt-2">
+                <span className="text-lg font-semibold">Total:</span>
+                <span className="tabular-nums text-lg font-semibold">{formattedFinalAmount}</span>
+              </div>
+            </div>
           </div>
 
           <div className="flex w-full">
@@ -403,7 +482,13 @@ Bank Name: State Bank of India`}
             to print or save it!
           </p>
         </div>
-        <Preview formData={previewData} totalItemsAmount={totalItemsAmount} currencyCode={selectedCurrency.code} />
+        <Preview 
+          formData={previewData} 
+          totalItemsAmount={formattedTotalItemsAmount} 
+          discountAmount={formattedDiscountAmount} 
+          finalAmount={formattedFinalAmount} 
+          currencyCode={selectedCurrency.code} 
+        />
       </div>
 
       {devMode ? (
