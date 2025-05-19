@@ -1,14 +1,34 @@
-import { cn, formatCurrency } from '@/app/lib/utils'
-
+import { cn, formatCurrency, calculateDiscountAmount } from '@/app/lib/utils'
 import { FormData } from './context/form'
 
 type PreviewProps = {
   formData: FormData
   totalItemsAmount: string
+  discountAmount?: string
+  finalAmount?: string
   currencyCode: string
 }
 
-export default function Preview({ totalItemsAmount, formData, currencyCode }: PreviewProps) {
+export default function Preview({ totalItemsAmount, discountAmount, finalAmount, formData, currencyCode }: PreviewProps) {
+ 
+  const subtotalValue = parseFloat(
+    formData.items?.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0).toString()
+  )
+  
+  const discountValue = calculateDiscountAmount(
+    subtotalValue,
+    formData.discountType,
+    Number(formData.discountValue)  
+  )
+  
+  const calculatedFinalAmount = subtotalValue - discountValue
+  
+  
+  const displaySubtotal = totalItemsAmount || formatCurrency(subtotalValue, 'en', currencyCode)
+  const displayDiscount = discountAmount || formatCurrency(discountValue, 'en', currencyCode)
+  const displayFinalAmount = finalAmount || formatCurrency(calculatedFinalAmount, 'en', currencyCode)
+
+ 
   return (
     <div
       className={cn(
@@ -18,6 +38,15 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
       <div className="w-[860px] md:w-full">
         <div className="flex w-full justify-between">
           <div className="flex w-full max-w-md flex-col gap-3">
+            {formData.logo && (
+              <div className="mb-3">
+                <img 
+                  src={formData.logo} 
+                  alt="Company Logo" 
+                  className="max-h-24 max-w-48 mb-2" 
+                />
+              </div>
+            )}
             <h4 className="max-w-md text-xl font-semibold">{formData.name}</h4>
 
             <p className="mt-1 flex w-full max-w-xs flex-col whitespace-pre-line">
@@ -90,9 +119,27 @@ export default function Preview({ totalItemsAmount, formData, currencyCode }: Pr
               )
             })}
           </div>
-          <h6 className="mt-10 mb-6 w-full text-right text-xl font-semibold tracking-tight">
-            Total Amount: <span className="tabular-nums">{totalItemsAmount}</span>
-          </h6>
+          
+          <div className="mt-6 mb-6 flex w-full flex-col items-end">
+        <div className="flex w-64 justify-between">
+          <span className="text-base">Subtotal:</span>
+          <span className="tabular-nums">{displaySubtotal}</span>
+        </div>
+        
+        {discountValue > 0 && (
+          <div className="mt-1 flex w-64 justify-between">
+            <span className="text-base">
+              Discount {formData.discountType === 'percentage' ? `(${formData.discountValue}%)` : ''}:
+            </span>
+            <span className="tabular-nums text-red-600">-{displayDiscount}</span>
+          </div>
+        )}
+        
+        <div className="mt-2 flex w-64 justify-between border-t pt-2">
+          <span className="text-lg font-semibold">Total Amount:</span>
+          <span className="tabular-nums text-lg font-semibold">{displayFinalAmount}</span>
+        </div>
+      </div>
         </div>
 
         <div className="flex w-full flex-col">
